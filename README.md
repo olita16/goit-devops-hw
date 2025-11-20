@@ -9,29 +9,27 @@ lesson-5/
 │
 ├── main.tf                  # Головний файл для підключення модулів
 ├── backend.tf               # Налаштування бекенду для стейтів (S3 + DynamoDB)
-├── outputs.tf               # Загальне виведення ресурсів
+├── outputs.tf               # Загальні вихідні дані ресурсів
+├── README.md                # Документація проєкту
 │
-├── modules/                 # Каталог з усіма модулями
-│   │
-│   ├── s3-backend/          # Модуль для S3 та DynamoDB
-│   │   ├── s3.tf            # Створення S3-бакета
-│   │   ├── dynamodb.tf      # Створення DynamoDB
-│   │   ├── variables.tf     # Змінні для S3
-│   │   └── outputs.tf       # Виведення інформації про S3 та DynamoDB
-│   │
-│   ├── vpc/                 # Модуль для VPC
-│   │   ├── vpc.tf           # Створення VPC, підмереж, Internet Gateway
-│   │   ├── routes.tf        # Налаштування маршрутизації
-│   │   ├── variables.tf     # Змінні для VPC
-│   │   └── outputs.tf       # Виведення інформації про VPC
-│   │
-│   └── ecr/                 # Модуль для ECR
-│       ├── ecr.tf           # Створення ECR репозиторію
-│       ├── variables.tf     # Змінні для ECR
-│       └── outputs.tf       # Виведення URL репозиторію ECR
-│
-└── README.md                # Документація проєкту
-
+└── modules/                 # Каталог з усіма модулями
+    │
+    ├── s3-backend/          # Модуль для S3 та DynamoDB
+    │   ├── s3.tf            # Створення S3-бакета для зберігання стану
+    │   ├── dynamodb.tf      # Створення таблиці DynamoDB для блокувань
+    │   ├── variables.tf     # Змінні модуля
+    │   └── outputs.tf       # Вивід інформації про S3 та DynamoDB
+    │
+    ├── vpc/                 # Модуль для VPC
+    │   ├── vpc.tf           # Створення VPC, підмереж та Internet Gateway
+    │   ├── routes.tf        # Налаштування таблиць маршрутизації
+    │   ├── variables.tf     # Змінні модуля
+    │   └── outputs.tf       # Вивід інформації про VPC
+    │
+    └── ecr/                 # Модуль для ECR
+        ├── ecr.tf           # Створення репозиторію ECR та політик доступу
+        ├── variables.tf     # Змінні модуля
+        └── outputs.tf       # Вивід URL репозиторію ECR
 
 
 ## Модулі
