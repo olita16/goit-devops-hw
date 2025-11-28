@@ -3,6 +3,8 @@ namespace: default
 image:
   repository: 826232761489.dkr.ecr.eu-central-1.amazonaws.com/lesson-7-ecr
   tag: v1.0.3
+  pullPolicy: IfNotPresent
+  command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
 service:
   type: LoadBalancer

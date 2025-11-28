@@ -18,7 +18,6 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port }}
-          command: ["tail", "-f", "/dev/null"] 
           resources:
             requests:
               cpu: 100m

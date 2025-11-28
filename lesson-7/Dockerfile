@@ -1,13 +1,15 @@
-FROM python:3.12-slim
+# Dockerfile
+FROM python:3.11-slim
 
 WORKDIR /app
+COPY ./my_django_project/ /app
 
-# Копіюємо лише Helm-чарти (якщо потрібні у контейнері)
-COPY charts/django-app/ /app/
 
-# Встановлюємо pip-залежності, якщо потрібні
-COPY requirements.txt /app/
-RUN if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
+# Встановлюємо залежності
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Команда, щоб контейнер працював без manage.py
-CMD ["tail", "-f", "/dev/null"]
+# Виставляємо порт
+EXPOSE 8000
+
+# Команда запуску
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
