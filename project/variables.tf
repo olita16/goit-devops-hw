@@ -1,0 +1,64 @@
+variable "jenkins_admin_password" {
+  description = "Jenkins admin password"
+  type        = string
+  sensitive   = true
+}
+
+variable "github_username" {
+  description = "GitHub username"
+  type        = string
+}
+
+variable "github_pat" {
+  description = "GitHub Personal Access Token"
+  type        = string
+  sensitive   = true
+}
+
+variable "github_url" {
+  description = "GitHub repository URL"
+  type        = string
+}
+
+variable "github_tf_url" {
+  description = "GitHub Terraform repository URL"
+  type        = string
+}
+
+variable "github_tf_branch" {
+  description = "GitHub Terraform repository branch"
+  type        = string
+}
+
+variable "github_main_branch" {
+  description = "Main branch name"
+  type        = string
+  default     = "main"
+}
+
+variable "helm_chart_path" {
+  description = "Шлях до Helm чарта"
+  type        = string
+  default     = "project/charts/django-app"
+}
+variable "grafana_admin_password" {
+  description = "Grafana admin password"
+  type        = string
+  sensitive   = true
+}
+
+variable "rds_db_password" {
+  description = "RDS database password"
+  type        = string
+  sensitive   = true
+}
+
+variable "rds_db_user" {
+  description = "RDS database user"
+  type        = string
+}
+
+variable "rds_db_name" {
+  description = "RDS database name"
+  type        = string
+}
