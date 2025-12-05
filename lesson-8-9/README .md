@@ -39,6 +39,13 @@ Progect/
 │   │   ├── variables.tf     # Змінні для EKS
 │   │   └── outputs.tf       # Виведення інформації про кластер
 │   │
+│   ├── rds/                 # Модуль для RDS/Aurora баз даних
+│   │   ├── rds.tf           # RDS інстанс
+│   │   ├── aurora.tf        # Aurora кластер (writer + readers)
+│   │   ├── shared.tf        # Спільні ресурси (subnet group, security group)
+│   │   ├── variables.tf     # Змінні для RDS/Aurora
+│   │   └── outputs.tf       # Виведення інформації про RDS
+│   │
 │   ├── jenkins/             # Модуль для Jenkins
 │   │   ├── jenkins.tf       # Розгортання Jenkins через Helm
 │   │   ├── values.yaml      # Налаштування Jenkins
@@ -354,7 +361,7 @@ module "rds" {
 
 **Як змінити тип БД, engine та клас інстансу**
 
-# --- Перехід між стандартним RDS та Aurora ---
+***Перехід між стандартним RDS та Aurora***
 
 - `Стандартний RDS:`- use_aurora = false, налаштовуються → engine, engine_version, parameter_group_family_rds
 
